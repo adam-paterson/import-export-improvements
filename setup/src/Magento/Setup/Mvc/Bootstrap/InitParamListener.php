@@ -1,9 +1,8 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Magento\Setup\Mvc\Bootstrap;
 
 use Magento\Framework\App\Bootstrap as AppBootstrap;
@@ -137,8 +136,7 @@ class InitParamListener implements ListenerAggregateInterface, FactoryInterface
                 /** @var \Magento\Backend\Model\Auth $auth */
                 $authentication = $objectManager->get(\Magento\Backend\Model\Auth::class);
 
-                if (
-                    !$authentication->isLoggedIn() ||
+                if (!$authentication->isLoggedIn() ||
                     !$adminSession->isAllowed('Magento_Backend::setup_wizard')
                 ) {
                     $adminSession->destroy();

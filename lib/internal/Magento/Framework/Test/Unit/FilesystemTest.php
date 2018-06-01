@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace Magento\Framework\Test\Unit;
@@ -59,6 +59,14 @@ class FilesystemTest extends \PHPUnit_Framework_TestCase
         $dirReadMock = $this->getMock('Magento\Framework\Filesystem\Directory\ReadInterface');
         $this->_dirReadFactoryMock->expects($this->once())->method('create')->will($this->returnValue($dirReadMock));
         $this->assertEquals($dirReadMock, $this->_filesystem->getDirectoryRead(DirectoryList::ROOT));
+    }
+    
+    public function testGetDirectoryReadByPath()
+    {
+        /** @var \Magento\Framework\Filesystem\Directory\ReadInterface $dirReadMock */
+        $dirReadMock = $this->createMock(\Magento\Framework\Filesystem\Directory\ReadInterface::class);
+        $this->_dirReadFactoryMock->expects($this->once())->method('create')->will($this->returnValue($dirReadMock));
+        $this->assertEquals($dirReadMock, $this->_filesystem->getDirectoryReadByPath('path/to/some/file'));
     }
 
     public function testGetDirectoryWrite()

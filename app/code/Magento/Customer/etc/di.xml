@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 -->
@@ -330,6 +330,11 @@
                     <item name="identifierField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Model\AccountManagement">
+        <arguments>
+            <argument name="sessionManager" xsi:type="object">Magento\Framework\Session\SessionManagerInterface\Proxy</argument>
         </arguments>
     </type>
 </config>
